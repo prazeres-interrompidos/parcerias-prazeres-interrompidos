@@ -18,11 +18,11 @@ Para integrar no Google Sites: Inserir → Incorporar → Por URL e usar o ender
 
 A administração protegida está em https://parcerias-prazeres-interrompidos.jauntymink64.chatgpt.site/?admin=1 . O botão Administração da versão pública abre essa página.
 
-**Sincronização automática:** na administração, abre «Sincronização com a página pública» e configura uma chave fine-grained do GitHub, limitada ao repositório `parcerias-prazeres-interrompidos`, com a permissão Contents: Read and write. A chave é cifrada no servidor; não a adicionar ao código, ao repositório ou a conversas.
+**Base de dados única:** a página pública consulta diretamente `/api/directory` no servidor Sites. «Guardar alterações» atualiza a base de dados; a página pública obtém esses dados ao abrir ou ao clicar em «Atualizar lista». Não é necessário autorizar escritas no GitHub nem republicar o site a cada edição.
 
-Depois de configurar, «Guardar alterações» guarda os dados e atualiza `docs/data.json` no GitHub. O GitHub Pages publica a atualização em alguns minutos. «Consultar estado» indica se há revisões por publicar; «Publicar agora» permite repetir a publicação sem voltar a editar os dados. Se a chave expirar ou houver uma falha do GitHub, os dados permanecem guardados na administração e a página pública conserva a última versão publicada.
+`docs/data.json` é uma cópia de reserva. Se a consulta ao servidor falhar, a página mostra essa cópia e apresenta um aviso. Essa reserva não é atualizada automaticamente; pode ser substituída por uma exportação recente obtida em «Descarregar cópia».
 
-A chave fine-grained deve ser criada pelo titular da conta e introduzida apenas no campo protegido da administração. A configuração inicial também publica os dados já guardados. Enquanto a configuração não for concluída, a sincronização automática ainda não está ativa.
+A consulta é pública. As operações de escrita verificam no servidor a conta autenticada do administrador, o seu identificador e a origem do pedido. A API pública não devolve identificadores de conta nem credenciais. O CORS de leitura permite a origem do GitHub Pages.
 
 Os totais são manuais porque certas entradas representam várias instituições. As contagens por país referem-se às entradas listadas e podem contar a mesma pessoa em várias categorias.
 
@@ -30,7 +30,7 @@ Os países são identificados pelo texto do registo quando não existe uma escol
 
 ## Código do servidor
 
-As pastas `app/`, `db/`, `drizzle/`, `build/`, `lib/` e `scripts/` contêm o código da área de administração. Requer um ambiente Sites com autenticação ChatGPT e Cloudflare D1; não é executado pelo GitHub Pages.
+As pastas `app/`, `db/`, `drizzle/`, `build/`, `lib/` e `scripts/` contêm o código da área de administração e da API pública de leitura. Requer um ambiente Sites com autenticação ChatGPT e Cloudflare D1; não é executado pelo GitHub Pages.
 
 Nesta cópia do código, o endereço autorizado deve ser configurado na variável de servidor `ADMIN_EMAIL`. Não adicionar palavras-passe, tokens ou credenciais ao repositório. A primeira gravação válida vincula a edição ao identificador autenticado da conta. A versão já publicada no Sites mantém a sua configuração atual.
 
