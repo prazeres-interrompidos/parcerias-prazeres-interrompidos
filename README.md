@@ -18,7 +18,7 @@ Para integrar no Google Sites: Inserir → Incorporar → Por URL e usar o ender
 
 A administração protegida está em https://parcerias-prazeres-interrompidos.jauntymink64.chatgpt.site/?admin=1 . O botão Administração da versão pública abre essa página.
 
-**Base de dados única:** a página pública consulta diretamente `/api/directory` no servidor Sites. «Guardar alterações» atualiza a base de dados; a página pública obtém esses dados ao abrir ou ao clicar em «Atualizar lista». Não é necessário autorizar escritas no GitHub nem republicar o site a cada edição.
+**Base de dados única:** a página pública consulta diretamente `/api/directory` no servidor Sites. «Guardar alterações» atualiza a base de dados; a página pública obtém esses dados ao abrir, ao regressar à página e automaticamente a cada 30 segundos enquanto estiver visível. Não é necessário autorizar escritas no GitHub nem republicar o site a cada edição.
 
 `docs/data.json` é uma cópia de reserva. Se a consulta ao servidor falhar, a página mostra essa cópia e apresenta um aviso. Essa reserva não é atualizada automaticamente; pode ser substituída por uma exportação recente obtida em «Descarregar cópia».
 
