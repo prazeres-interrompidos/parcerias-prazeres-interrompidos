@@ -1,6 +1,6 @@
 declare namespace Cloudflare {
   interface Env {
-  ADMIN_EMAIL?: string;
+    GITHUB_SYNC_KEY?: string;
     DB?: D1Database;
     BUCKET?: R2Bucket;
   }

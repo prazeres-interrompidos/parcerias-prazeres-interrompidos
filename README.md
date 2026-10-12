@@ -18,11 +18,15 @@ Para integrar no Google Sites: Inserir → Incorporar → Por URL e usar o ender
 
 A administração protegida está em https://parcerias-prazeres-interrompidos.jauntymink64.chatgpt.site/?admin=1 . O botão Administração da versão pública abre essa página.
 
-**As duas versões não estão sincronizadas automaticamente.** A administração guarda dados no servidor Sites. A versão do GitHub Pages apresenta o ficheiro `docs/data.json`. Depois de editar no servidor, usar **Descarregar cópia** e substituir `docs/data.json` pelo conteúdo dessa cópia no GitHub, ou pedir a atualização ao ChatGPT. Confirmar a publicação antes de considerar a versão pública atualizada.
+**Sincronização automática:** na administração, abre «Sincronização com a página pública» e configura uma chave fine-grained do GitHub, limitada ao repositório `parcerias-prazeres-interrompidos`, com a permissão Contents: Read and write. A chave é cifrada no servidor; não a adicionar ao código, ao repositório ou a conversas.
+
+Depois de configurar, «Guardar alterações» guarda os dados e atualiza `docs/data.json` no GitHub. O GitHub Pages publica a atualização em alguns minutos. «Consultar estado» indica se há revisões por publicar; «Publicar agora» permite repetir a publicação sem voltar a editar os dados. Se a chave expirar ou houver uma falha do GitHub, os dados permanecem guardados na administração e a página pública conserva a última versão publicada.
+
+A chave fine-grained deve ser criada pelo titular da conta e introduzida apenas no campo protegido da administração. A configuração inicial também publica os dados já guardados. Enquanto a configuração não for concluída, a sincronização automática ainda não está ativa.
 
 Os totais são manuais porque certas entradas representam várias instituições. As contagens por país referem-se às entradas listadas e podem contar a mesma pessoa em várias categorias.
 
-Os países são identificados pelo texto do registo quando não existe uma escolha manual. Uma lista `countries` define as bandeiras manualmente; `[]` ou um campo omitido ativa a identificação pelo texto. Quando o texto não indica um país, o registo é tratado como português, conforme a indicação do responsável do projeto.
+Os países são identificados pelo texto do registo quando não existe uma escolha manual. Uma lista `countries` define as bandeiras manualmente; `[]` significa país não indicado. Omitir esse campo ativa a identificação pelo texto.
 
 ## Código do servidor
 

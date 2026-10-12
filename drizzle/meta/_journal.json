@@ -8,6 +8,13 @@
       "when": 1791809154306,
       "tag": "0000_married_purifiers",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "6",
+      "when": 1791821074389,
+      "tag": "0001_wise_wildside",
+      "breakpoints": true
     }
   ]
 }
