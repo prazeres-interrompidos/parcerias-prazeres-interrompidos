@@ -22,7 +22,7 @@ A administração protegida está em https://parcerias-prazeres-interrompidos.ja
 
 Os totais são manuais porque certas entradas representam várias instituições. As contagens por país referem-se às entradas listadas e podem contar a mesma pessoa em várias categorias.
 
-Os países são identificados pelo texto do registo quando não existe uma escolha manual. Uma lista `countries` define as bandeiras manualmente; `[]` significa país não indicado. Omitir esse campo ativa a identificação pelo texto.
+Os países são identificados pelo texto do registo quando não existe uma escolha manual. Uma lista `countries` define as bandeiras manualmente; `[]` ou um campo omitido ativa a identificação pelo texto. Quando o texto não indica um país, o registo é tratado como português, conforme a indicação do responsável do projeto.
 
 ## Código do servidor
 
